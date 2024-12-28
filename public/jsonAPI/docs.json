@@ -39,5 +39,31 @@
                 }
             ]
         }
+    },
+    {
+        "methodReq": "GET",
+        "title": "/api/books",
+        "description": "/api/books?q=kisah sejarah nabi muhammad islam&page=1",
+        "docs": {
+            "pesan": "sukses",
+            "status": 200,
+            "nama_apikey": "Mr Bambang",
+            "data": [
+                {
+                    "current_page": "int",
+                    "per_page": "int",
+                    "total_items": "int",
+                    "total_pages": "int",
+                    "data": {
+                        "title": "string",
+                        "publisher": "string",
+                        "description": "string",
+                        "pageCount": "string",
+                        "thumbnail": "string",
+                        "previewLink": "string"
+                    }
+                }
+            ]
+        }
     }
 ]

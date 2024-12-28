@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\BookController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Page\PageController;
@@ -59,6 +60,8 @@ Route::middleware(['ApiServices'])->group(function () {
 
     Route::get('alquran/ayat', [AlquranAyatController::class, 'index'])->name('alquranayat.index');
 
+    // API BOOKS
+    Route::get('/books',[BookController::class,'index'])->name('books.index');
 });
 
 

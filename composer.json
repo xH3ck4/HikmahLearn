@@ -13,6 +13,7 @@
         "laravel/sanctum": "^3.2",
         "laravel/tinker": "^2.8",
         "midtrans/midtrans-php": "^2.6",
+        "scriptotek/google-books": "^0.2.6",
         "symfony/dom-crawler": "^7.2"
     },
     "require-dev": {

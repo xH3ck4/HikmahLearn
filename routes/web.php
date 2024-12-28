@@ -38,6 +38,7 @@ Route::middleware(['web','auth:sanctum', 'verified'])->group(function () {
     Route::get('/logs', [PageController::class ,'logs'])->name('logs.view');
     Route::get('/profile', [PageController::class ,'profile'])->name('profile.view');
     Route::get('/saldo', [PageController::class ,'saldo'])->name('saldo.view');
+    Route::get('/books', [PageController::class ,'books'])->name('books.view');
 });
 
 // ADMIN PAGE
@@ -45,5 +46,6 @@ Route::middleware(['web','auth:sanctum', 'isDewa'])->group(function () {
     Route::resource('/admin', AdminController::class);
     Route::resource('/logs-add', LogsUpdateController::class);
 });
+
 
 

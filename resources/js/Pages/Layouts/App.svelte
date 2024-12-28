@@ -53,6 +53,7 @@
           </Link>
           <Link href="/dashboard" class="hover:text-indigo-500 transition duration-300"><i class="fa-solid fa-tachometer-alt"></i> Dashboard</Link>
           <Link href="/docs" class="hover:text-indigo-500 transition duration-300"><i class="fa-solid fa-book"></i> Docs</Link>
+          <Link href="/books" class="hover:text-indigo-500 transition duration-300"><i class="fa-solid fa-book"></i> Books</Link>
           <Link href="/logs" class="hover:text-indigo-500 transition duration-300"><i class="fa-solid fa-info-circle"></i> Logs</Link>
           <Link href="/profile" class="hover:text-indigo-500 transition duration-300"><i class="fa-solid fa-user"></i> Profil</Link>
           <button on:click={logout} class="hover:text-indigo-500 transition duration-300"><i class="fa-solid fa-sign-out-alt"></i> Logout</button>
@@ -82,6 +83,7 @@
           </Link>
           <Link href="/dashboard" class="hover:text-indigo-500 transition duration-300"><i class="fa-solid fa-tachometer-alt"></i> Dashboard</Link>
           <Link href="/docs" class="hover:text-indigo-500 transition duration-300"><i class="fa-solid fa-book"></i> Docs</Link>
+          <Link href="/books" class="hover:text-indigo-500 transition duration-300"><i class="fa-solid fa-book"></i> Books</Link>
           <Link href="/logs" class="hover:text-indigo-500 transition duration-300"><i class="fa-solid fa-info-circle"></i> Logs</Link>
           <Link href="/profile" class="hover:text-indigo-500 transition duration-300"><i class="fa-solid fa-user"></i> Profil</Link>
           <button on:click={logout} class="hover:text-indigo-500 transition duration-300"><i class="fa-solid fa-sign-out-alt"></i> Logout</button>
@@ -125,7 +127,7 @@
         </div>
       </div>
       <div class="text-center text-sm bg-gray-800 py-4">
-        © {currentYear} Copyright: <Link class="font-bold hover:text-indigo-500 transition-colors duration-300" href="#">BudiBlack</Link>
+        © {currentYear} Copyright: <Link class="font-bold hover:text-indigo-500 transition-colors duration-300" href="#">Kelompok 6 | TI-B</Link>
       </div>
     </div>
   </footer>
