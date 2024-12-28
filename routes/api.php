@@ -1,43 +1,64 @@
 <?php
 
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\logoutController;
-use App\Http\Controllers\PaymentController;
-use App\Http\Controllers\profileController;
-use App\Http\Controllers\QuestionController;
-use App\Http\Controllers\TaskController;
-
-
+use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Auth\ResetPasswordController;
+use App\Http\Controllers\Page\PageController;
+use App\Http\Controllers\Payment\CallbackController;
+use App\Http\Controllers\Payment\PaymentController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::post('/login', [LoginController::class, 'login']);
-Route::post('/signup', [LoginController::class, 'signup']);
-Route::post('/Count', [LoginController::class, 'Calculatecount']);
-Route::post('/register', [LoginController::class, 'Registerstudent']);
-Route::post('/logout', [LoginController::class, 'logout']);
-// Route::post('/logout', [LoginController::class, 'logout'])->middleware('auth:api');
-Route::post('/getdataregister', [LoginController::class, 'getdataRegister']);
-Route::post('/update-status', [LoginController::class, 'updateStatus']);
-Route::post('/getlogin-details', [LoginController::class, 'getUserDetails']);
+// SERVICES
+use App\Http\Controllers\API\AlquranAyatController;
+use App\Http\Controllers\API\AlquranSurahController;
+
+/*
+|--------------------------------------------------------------------------
+| API Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register API routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "api" middleware group. Make something great!
+|
+*/
+
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
+});
+
+// API Auth
+Route::post('/login', [AuthController::class ,'loginPost'])->name('login.post');
+Route::post('/register', [AuthController::class ,'registerPost'])->name('register.post');
+Route::post('/logout', [AuthController::class ,'logout'])->name('logout')->name('logout')->middleware(['web','auth:sanctum']);
+
+// API Send Reset Password
+Route::post('/reset-password', [ResetPasswordController::class ,'sendResetLink'])->name('reset.password')->middleware(['throttle:1,1']);
+Route::post('/new-password', [ResetPasswordController::class ,'newPassword'])->name('new.password');
+
+// API Profile
+Route::get('/getprofile', [PageController::class ,'profile_api'])->name('profile.api')->middleware(['web','auth:sanctum']);
+Route::post('/updateprofile', [PageController::class ,'update_profile_api'])->name('update.profile.api')->middleware(['web','auth:sanctum']);
+Route::post('/profile/ganti-password', [ResetPasswordController::class ,'updateProfilePassword'])->name('update.profile.password')->middleware(['web','auth:sanctum']);
+
+// TOP UP SALDO PAYMENT
+Route::post('/topup', [PaymentController::class ,'TopupSaldo'])->name('TopupSaldo')->middleware(['web','auth:sanctum']);
+Route::post('/topup/batal', [PaymentController::class ,'TopupSaldoBatal'])->name('TopupSaldo.batal')->middleware(['web','auth:sanctum']);
 
 
-//Task manager
-Route::post('/postTaskDetails', [TaskController::class, 'SendTaskDetails']);
-Route::post('/getTaskDetails', [TaskController::class, 'getalldataTask']);
+// CALLBACK MIDTRANS PAYMENT
+Route::post('/callback/midtrans',[CallbackController::class,'callbackPay'])->name('callback.payment');
 
 
-//payment
-Route::post('/payment', [PaymentController::class, 'store']); // Save payment
+// SERVICES API
 
-Route::get('/payments/{id}', [PaymentController::class, 'getPayments']);
+Route::middleware(['ApiServices'])->group(function () {
 
-Route::post('/paymentsall', [PaymentController::class, 'getAlldatapayment']); 
+    // API ALQURAN
+    Route::get('alquran/surah', [AlquranSurahController::class, 'index'])->name('alquransurah.index');
+
+    Route::get('alquran/ayat', [AlquranAyatController::class, 'index'])->name('alquranayat.index');
+
+});
 
 
-//Quiz
-
-Route::get('/questions', [QuestionController::class, 'index']);
-Route::post('/questions', [QuestionController::class, 'store']);
-Route::get('/questions/{id}', [QuestionController::class, 'show']);
-Route::put('/questions/{id}', [QuestionController::class, 'update']);
-Route::delete('/questions/{id}', [QuestionController::class, 'destroy']);

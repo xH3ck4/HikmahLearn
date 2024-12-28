@@ -1,0 +1,43 @@
+[
+    {
+        "methodReq": "GET",
+        "title": "/api/alquran/surah",
+        "description": "/api/alquran/surah?id={id}",
+        "docs": {
+            "pesan": "sukses",
+            "status": 200,
+            "nama_apikey": "Mr Bambang",
+            "data": {
+                "id": "int",
+                "arti": "string",
+                "asma": "string",
+                "ayat": "string",
+                "nama": "string",
+                "type": "string",
+                "urut": "string",
+                "audio": "string",
+                "nomor": "string",
+                "rukuk": "string",
+                "keterangan": "string"
+            }
+        }
+    },
+    {
+        "methodReq": "GET",
+        "title": "/api/alquran/ayat",
+        "description": "/api/alquran/ayat?id={id}",
+        "docs": {
+            "pesan": "sukses",
+            "status": 200,
+            "nama_apikey": "Mr Bambang",
+            "data": [
+                {
+                    "ar": "string",
+                    "id": "string",
+                    "tr": "string",
+                    "nomor": "string"
+                }
+            ]
+        }
+    }
+]
