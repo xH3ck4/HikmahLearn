@@ -94,21 +94,21 @@
                 <div class="bg-white/10 backdrop-blur-md rounded-lg p-6 text-white">
                     <i class="fa-solid fa-money-bill text-3xl mb-4"></i>
                     <h3 class="text-xl font-semibold mb-2">Saldo</h3>
-                    <p class="text-gray-300">Rp. {userSaldo.toLocaleString('id-ID')}</p>
+                    <p class="text-white">Rp. {userSaldo.toLocaleString('id-ID')}</p>
                 </div>
             </Link>
             <Link href="/profile" class="transform hover:scale-105 transition-transform duration-300">
                 <div class="bg-white/10 backdrop-blur-md rounded-lg p-6 text-white">
                     <i class="fa-solid fa-user text-3xl mb-4"></i>
                     <h3 class="text-xl font-semibold mb-2">Profile</h3>
-                    <p class="text-gray-300">Manage your account & API Key</p>
+                    <p class="text-white">Manage your account & API Key</p>
                 </div>
             </Link>
             <Link href="/docs" class="transform hover:scale-105 transition-transform duration-300">
                 <div class="bg-white/10 backdrop-blur-md rounded-lg p-6 text-white">
                     <i class="fa-solid fa-book text-3xl mb-4"></i>
                     <h3 class="text-xl font-semibold mb-2">Docs</h3>
-                    <p class="text-gray-300">Documentation API</p>
+                    <p class="text-white">Documentation API</p>
                 </div>
             </Link>
         </div>
