@@ -158,7 +158,7 @@ class PageController extends Controller
 
     public function books(Request $request)
     {
-        $query = $request->query('q') ?? 'kisah sejarah nabi muhammad islam';
+        $query = $request->query('q') ?? 'kisah sejarah nabi muhammad';
         $page = $request->query('page') ?? 1;
         $books = new GoogleBooks(['key' => env('GOOGLE_BOOKS_KEY')]);
         $bookshelf = [];

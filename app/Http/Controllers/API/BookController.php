@@ -38,7 +38,6 @@ class BookController extends Controller
     {
         $apikeyheaders = $request->header('apikey');
         $userApiKey = User::where('apikey', $apikeyheaders)->first();
-        $allAyat = json_decode(file_get_contents("jsonAPI/alquran_ayat.json"), true);
 
         $page = $request->query('page');
         $query = $request->query('q');
