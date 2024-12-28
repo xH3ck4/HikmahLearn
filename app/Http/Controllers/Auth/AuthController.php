@@ -72,7 +72,7 @@ class AuthController extends Controller
             'email' => 'required|email|unique:users,email',
             'nohp' => ['required','string','regex:/^(\+62|62|0)8[1-9][0-9]{6,10}$/','min:9','max:14','unique:users'],
             'password' => 'required|string|min:8',
-            'g-recaptcha-response' => 'required|captcha'
+            // 'g-recaptcha-response' => 'required|captcha'
         ]);
 
         if ($validator->fails()) {

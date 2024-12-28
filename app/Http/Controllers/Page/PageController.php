@@ -100,7 +100,7 @@ class PageController extends Controller
             'nama' => ['required','regex:/^[A-Za-z\s]*$/','string','max:100'],
             'nohp' => ['required','regex:/^(\+62|62|0)8[1-9][0-9]{6,10}$/','string','min:9','max:14','unique:users,nohp,' . $user->id],
             'email' => 'required|string|email|max:100|unique:users,email,' . $user->id,
-            'g-recaptcha-response' => 'required|captcha',
+            // 'g-recaptcha-response' => 'required|captcha',
             'apikey' => 'required|min:32|max:32|string|unique:users,apikey,' . $user->id,
             'wlip'=> ['nullable','max:255','regex:/((25[0-5]|2[0-4]\d|[01]?\d\d?)\.(25[0-5]|2[0-4]\d|[01]?\d\d?)\.(25[0-5]|2[0-4]\d|[01]?\d\d?)\.(25[0-5]|2[0-4]\d|[01]?\d\d?)(,|,?$))/']
 
@@ -116,7 +116,7 @@ class PageController extends Controller
             'email.email' => 'Email tidak valid!!',
             'email.unique' => 'Email sudah pernah terdaftar!',
             'email.max' => 'Harap masukkan maximal 100 karakter',
-            'g-recaptcha-response.required' => 'Mohon untuk menyelesaikan captcha terlebih dahulu!',
+            // 'g-recaptcha-response.required' => 'Mohon untuk menyelesaikan captcha terlebih dahulu!',
             'apikey.min' => 'Harap masukkan minimamal 32',
             'apikey.max' => 'Harap masukkan maximal 32',
             'apikey.unique' => 'Error, API key sudah pernah terdaftar!',

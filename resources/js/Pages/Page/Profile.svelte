@@ -4,8 +4,8 @@
     import { onMount } from 'svelte';
     import axios from 'axios';
     import NProgress from 'nprogress';
-    import { Recaptcha, recaptcha } from "svelte-recaptcha-v2";
-    const googleRecaptchaSiteKey = import.meta.env.VITE_NOCAPTCHA_SITEKEY;
+    // import { Recaptcha, recaptcha } from "svelte-recaptcha-v2";
+    // const googleRecaptchaSiteKey = import.meta.env.VITE_NOCAPTCHA_SITEKEY;
     export let title;
     let error;
     let success;
@@ -68,12 +68,12 @@
     const UpdateProfile = async (event) => {
         try {
             NProgress.start();
-            await recaptcha.execute();
-            const recaptchaToken = event.detail.token;
+            // await recaptcha.execute();
+            // const recaptchaToken = event.detail.token;
 
-            if (!recaptchaToken) {
-              throw new Error("Recaptcha token not generated.");
-            }
+            // if (!recaptchaToken) {
+            //   throw new Error("Recaptcha token not generated.");
+            // }
 
             const response = await axios.post('api/updateprofile', {
                 nama: nama,
@@ -81,7 +81,7 @@
                 email: email,
                 apikey: apikey,
                 wlip: wlip,
-                'g-recaptcha-response': recaptchaToken,
+                // 'g-recaptcha-response': recaptchaToken,
             }, {
                 headers: {
                     'Content-Type': 'application/json',
@@ -225,12 +225,12 @@
                             </div>
                         </div>
 
-                        <Recaptcha
+                        <!-- <Recaptcha
                             sitekey={googleRecaptchaSiteKey}
                             badge={"bottomright"}
                             size={"invisible"}
                             on:success={UpdateProfile}
-                        />
+                        /> -->
 
                         <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6 sm:mt-8">
                             <button

@@ -2,8 +2,8 @@
     import Layout from '../Layouts/App.svelte';
     import NProgress from 'nprogress';
     import { Link, inertia, router } from '@inertiajs/svelte';
-    import { Recaptcha, recaptcha } from "svelte-recaptcha-v2";
-    const googleRecaptchaSiteKey = import.meta.env.VITE_NOCAPTCHA_SITEKEY;
+    // import { Recaptcha, recaptcha } from "svelte-recaptcha-v2";
+    // const googleRecaptchaSiteKey = import.meta.env.VITE_NOCAPTCHA_SITEKEY;
     import axios from 'axios';
     let nama = '';
     let email = '';
@@ -21,19 +21,19 @@
     const Register = async (event) => {
         try {
             NProgress.start();
-            await recaptcha.execute();
-            const recaptchaToken = event.detail.token;
+            // await recaptcha.execute();
+            // const recaptchaToken = event.detail.token;
 
-            if (!recaptchaToken) {
-              throw new Error("Recaptcha token not generated.");
-            }
+            // if (!recaptchaToken) {
+            //   throw new Error("Recaptcha token not generated.");
+            // }
 
             const response = await axios.post('api/register', {
                 nama,
                 email,
                 nohp,
                 password,
-                'g-recaptcha-response': recaptchaToken,
+                // 'g-recaptcha-response': recaptchaToken,
             }, {
                 headers: {
                     'Content-Type': 'application/json',
@@ -141,12 +141,12 @@
             </div>
             </div>
 
-            <Recaptcha
+            <!-- <Recaptcha
             sitekey={googleRecaptchaSiteKey}
             badge={"bottomright"}
             size={"invisible"}
             on:success={Register}
-            />
+            /> -->
 
             <button type="submit" class="w-full py-3 px-6 text-white font-medium bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg hover:opacity-90 transition-all duration-300 transform hover:scale-105">
             Daftar Sekarang
