@@ -55,7 +55,7 @@
         NProgress.done();
     });
 
-    function generateApiKey(length = 30) {
+    function generateApiKey(length = 32) {
         const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
         return Array.from({ length }, () =>
         characters.charAt(Math.floor(Math.random() * characters.length))).join('');

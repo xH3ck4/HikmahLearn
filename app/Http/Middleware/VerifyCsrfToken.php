@@ -13,5 +13,8 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         '/api/*',
+        '/api',
+        '/logs-add/*',
+        '/logs-add',
     ];
 }
